@@ -1,148 +1,100 @@
-# Naukri Auto Apply Bot
+# Naukri Auto-Apply Bot
 
-Naukri Auto Apply Bot is a Python-based application that automates your job application process on Naukri.com. It leverages Selenium for web automation, BeautifulSoup for HTML parsing, and Tkinter for a user-friendly GUI.
+This application automates the job application process on Naukri.com. It features a graphical user interface (GUI) to help students and job seekers manage their applications without needing advanced technical knowledge.
 
-## Features
-- **Automated Job Search & Application:** Automatically search for and apply to job listings using specified queries and filters.
-- **Graphical User Interface:** Tkinter-based UI for easy control and monitoring of the application process.
-- **Cross-Platform Support:** Works on both Windows and macOS/Linux systems.
-- **Customizable Configuration:** Set job search queries, include/exclude keywords, and configure job application limits.
-- **Logging and Reporting:** Detailed logs and Excel outputs for applied, not applied, and excluded jobs.
+## Installation and Setup
 
-## Demo Video
+### 1. Clone the Repository
 
-Watch a complete demonstration of how to set up and use the Naukri Auto Apply Bot:
-
-[![Watch the Demo Video](https://img.shields.io/badge/Watch-Demo_Video-red?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1c0Y69PZ5UlFb3dZg0_-_wn7UibRQQwlW/view?usp=sharing)
-
-The video shows step-by-step instructions for installation, configuration, and running the application on both Windows and Mac.
-
-## Prerequisites
-- Python 3.x installed.
-- A web browser (preferably Brave Browser, but Chrome, Firefox, Edge or Safari will also work).
-- Git (optional) if you wish to clone the repository.
-
-## Installation
-
-### Clone the Repository
-Copy and run these commands:
+Run these commands in your terminal:
 
 ```bash
-git clone https://github.com/yuva-raja-reddy/auto-apply-naukri-jobs.git
+git clone https://github.com/ychaitu2025-dot/auto-apply-naukri-jobs.git
 cd auto-apply-naukri-jobs
+
 ```
 
-### Create and Activate a Virtual Environment
+### 2. Create a Virtual Environment
 
-#### For Windows
+This keeps the project dependencies organized and separate from your system.
+
+For Windows:
+
 ```bash
 python -m venv venv
 venv\Scripts\activate
+
 ```
 
-#### For macOS / Linux
+For macOS / Linux:
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate
+
 ```
 
-### Install Dependencies
-After activating your virtual environment, install the required packages:
+### 3. Install Required Packages
+
+Install the libraries needed for the bot to function:
 
 ```bash
 pip install -r requirements.txt
+
 ```
 
-### Configure Environment Variables
-1. Copy the `.env.sample` file to a new file named `.env`:
-   ```bash
-   cp .env.sample .env # On Windows use: copy .env.sample .env
-   ```
-2. Open the `.env` file and enter your Naukri username and password:
-   ```env
-   NAUKRI_USERNAME='your_email@example.com'
-   NAUKRI_PASSWORD='your_password'
-   ```
+### 4. Configure Your Credentials
 
+1. Find the file named .env.sample and rename it to .env
+2. Open .env in a text editor and enter your Naukri details:
+NAUKRI_USERNAME='your_email@example.com'
+NAUKRI_PASSWORD='your_password'
 
-If your Python installation doesn't include Tkinter, install it using:
+Note: If you are on Linux (Ubuntu/Debian), you may need to install the windowing toolkit:
 
 ```bash
-# For macOS
-brew install python-tk
-
-# For Ubuntu/Debian
 sudo apt-get install python3-tk
+
 ```
 
 ## Running the Application
 
-### For Windows
+To start the bot, run the following command in your terminal:
+
+For Windows:
+
 ```bash
-# Using the run script
 python run.py
 
-# Or directly
-python app_tkinter.py
 ```
 
-### For macOS / Linux
+For macOS / Linux:
+
 ```bash
-# Using the run script (recommended)
 python3 run.py
 
-# Or directly
-python3 app_tkinter.py
-
-# If you encounter permission issues with chromedriver
-chmod +x run.py
-./run.py
 ```
 
-The run.py script automatically handles chromedriver permissions, which is particularly helpful for macOS users.
+## Browser Support
 
-## Browser Configuration
+The application automatically detects and uses your installed browsers in this order of preference:
 
-The application will automatically detect your installed browsers in this preference order:
-1. Brave Browser (recommended)
+1. Brave Browser (Recommended)
 2. Google Chrome
 3. Safari (macOS only)
 4. Microsoft Edge
 5. Firefox
 
-If Brave Browser is installed, it will be used by default. If not, the application will fall back to the next available browser in the preference list.
+## How to Use
 
-## Using the Application
+1. Settings Tab: Enter and test your Naukri login credentials.
+2. Job Filters: Enter the job titles you are looking for. You can also add keywords to include or exclude (e.g., exclude "Internship" if you want full-time roles).
+3. Limits: Set the maximum number of jobs you want the bot to apply for in one session.
+4. Run Bot: Click Save Settings, navigate to the Run Bot tab, and click start.
 
-Once started, the GUI allows you to:
-- Test your Naukri login credentials.
-- Configure job search queries and keywords.
-- Start the automated job application process.
-- Monitor progress and view real-time logs.
-- Access Excel files with summaries of applied, not applied, and excluded jobs.
-
-### Application Settings via the GUI
-1. Navigate to the **Settings** tab.
-2. Enter your Naukri login credentials and test the connection.
-3. Configure your job search queries, include/exclude keywords, and set the maximum number of applications.
-4. Click **Save Settings** to persist your configuration.
-5. Return to the **Run Bot** tab to start applying.
+The application will generate Excel files summarizing which jobs were applied for and which were skipped based on your filters.
 
 ## Troubleshooting
 
-- **Slow Login Issues:**  
-  The application has been updated to handle slower login processes. If you still experience issues, try increasing timeouts in the settings.
-
-- **WebDriver Issues:**  
-  The application uses `webdriver_manager` to handle drivers automatically. If you encounter issues, try running `run.py` which fixes common permission issues.
-
-- **Browser Detection Problems:**  
-  If your browser isn't being detected correctly, you can manually specify the browser path in the .env file.
-
-## Contributing
-Feel free to fork this repository and submit pull requests for improvements, additional features, or bug fixes.
-
-## Support
-If you find this project useful, please consider supporting its development:
-
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/yuvarajareddy)
+* If the login fails due to a slow internet connection, increase the timeout duration in the Settings tab.
+* If you encounter browser driver errors, ensure you are using the run.py script, as it automatically manages driver permissions.
