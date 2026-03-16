@@ -129,19 +129,16 @@ class NaukriAutoBotApp:
         self.config_file = os.path.join(self.config_dir, "settings.json")
         
         # Default values
-        self.search_queries = ["AI ML", "Gen AI", "Agentic AI", "Data Engineer", "Data Analyst", "Machine Learning"]
-        self.exclude_keywords = ["Manager", "Director",".net", "SAP","java","w2 only","only w2","no c2c",
-        "only on w2","w2 profiles only","tester","f2f"]
-        self.include_keywords = ["AI", "Artificial","Inteligence","Machine","Learning", "ML", "Data", "NLP", "ETL",
-        "Natural Language Processing","analyst","scientist","senior","cloud", 
-        "aws","gcp","Azure","agentic","python","rag","llm"]
+        self.search_queries = [" ", " "]
+        self.exclude_keywords = [" ", " "]
+        self.include_keywords = [" ", " "]
         self.headless_mode = False
         self.job_limit = 1500
         
         # New Advanced Filters
         self.location = "Hyderabad"
-        self.experience = "3 years"
-        self.workplace_type = "Any"
+        self.experience = "5 years"
+        self.workplace_type = "Remote"
         
         # Try to load from file if it exists
         import json
